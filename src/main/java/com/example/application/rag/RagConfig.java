@@ -1,39 +1,36 @@
 package com.example.application.rag;
 
-import jakarta.annotation.PostConstruct;
-
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.ai.embedding.EmbeddingClient;
 import org.springframework.ai.reader.ExtractedTextFormatter;
 import org.springframework.ai.reader.pdf.PagePdfDocumentReader;
 import org.springframework.ai.reader.pdf.config.PdfDocumentReaderConfig;
 import org.springframework.ai.transformer.splitter.TokenTextSplitter;
+import org.springframework.ai.vectorstore.SimpleVectorStore;
 import org.springframework.ai.vectorstore.VectorStore;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.Resource;
-import org.springframework.stereotype.Component;
 
-@Component
-public class PdfFileReader {
-    private final VectorStore vectorStore;
+@Slf4j
+@Configuration
+public class RagConfig {
 
-    @Value("classpath:JKResume.pdf")
+    @Value("classpath:pdfDocs/JKResume.pdf")
     private Resource pdfResource;
 
-    public PdfFileReader(VectorStore vectorStore) {
-        this.vectorStore = vectorStore;
-    }
-
-    @PostConstruct
-    public void init() {
-
+    @Bean
+    VectorStore vectorStore(EmbeddingClient embeddingClient) {
         var config = PdfDocumentReaderConfig.builder()
                 .withPageExtractedTextFormatter(
                         new ExtractedTextFormatter.Builder()
                                 .build())
                 .build();
-
+        SimpleVectorStore simpleVectorStore = new SimpleVectorStore(embeddingClient);
         var pdfReader = new PagePdfDocumentReader(pdfResource, config);
         var textSplitter = new TokenTextSplitter();
-        vectorStore.accept(textSplitter.apply(pdfReader.get()));
-
+        simpleVectorStore.accept(textSplitter.apply(pdfReader.get()));
+        return simpleVectorStore;
     }
 }
