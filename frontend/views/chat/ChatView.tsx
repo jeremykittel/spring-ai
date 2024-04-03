@@ -1,9 +1,33 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {MessageList, MessageListItem} from "@hilla/react-components/MessageList";
-import { AiService } from 'Frontend/generated/endpoints.js';
+import {AiService} from 'Frontend/generated/endpoints.js';
 import {MessageInput} from "@hilla/react-components/MessageInput";
+
 export default function ChatView() {
+
     const [messages, setMessages] = useState<MessageListItem[]>([]);
+
+    const getStoredMessages = () => {
+        let storedMessages = sessionStorage.getItem('messages');
+        try {
+            return storedMessages ? JSON.parse(storedMessages) : [];
+        } catch (error) {
+            console.error("Error parsing stored messages:", error);
+            return [];
+        }
+    }
+
+    const storeMessages = (messages: MessageListItem[]) => {
+        sessionStorage.setItem('messages', JSON.stringify(messages));
+    }
+
+    useEffect(() => {
+        setMessages(getStoredMessages());
+    }, []);
+
+    useEffect(() => {
+        storeMessages(messages)
+    }, [messages]);
 
     async function sendMessage(message: string) {
         setMessages(messages => [...messages, {
