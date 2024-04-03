@@ -22,3 +22,4 @@ error-screenshots/
 webpack.generated.js
 
 frontend/themes/hilla-react-app/theme-editor.css
+/docs/.obsidian/
