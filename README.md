@@ -10,6 +10,13 @@ To run it from the command line, type `gradlew bootRun` (Windows), or `./gradlew
 You can also import the project to your IDE of choice as you would with any Gradle project.
 Then you can run the main method of `Application.java`.
 
+You will also need an API key set as an environment variable to use the chat feature.
+
+- Create an OpenAI API Key at [OpenAI](https://platform.openai.com/api-keys)
+```text
+export OPEN_AI_API_KEY=<YOUR-OPEN-AI-API-KEY>
+```
+
 ## Deploying to Production
 
 To create a production build, call `gradlew -Philla.productionMode=true build` (Windows), or `./gradlew -Philla.productionMode=true build` (Mac & Linux).
