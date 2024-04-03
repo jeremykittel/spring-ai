@@ -1,5 +1,6 @@
 package com.example.application.rag;
 
+import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.ai.embedding.EmbeddingClient;
 import org.springframework.ai.reader.ExtractedTextFormatter;
@@ -17,20 +18,36 @@ import org.springframework.core.io.Resource;
 @Configuration
 public class RagConfig {
 
-    @Value("classpath:pdfDocs/JKResume.pdf")
-    private Resource pdfResource;
+    @Value("classpath:pdfDocs/*.pdf")
+    private Resource[] pdfResources;
 
     @Bean
     VectorStore vectorStore(EmbeddingClient embeddingClient) {
-        var config = PdfDocumentReaderConfig.builder()
+        SimpleVectorStore simpleVectorStore = new SimpleVectorStore(embeddingClient);
+        for (Resource pdfResource : pdfResources) {
+            processPdfResource(simpleVectorStore, pdfResource);
+        }
+        return simpleVectorStore;
+    }
+
+    @SneakyThrows
+    private void processPdfResource(SimpleVectorStore simpleVectorStore, Resource pdfResource) {
+        log.info("Processing Resource {}", pdfResource.getFilename());
+        var pdfReader = createPdfReader(pdfResource);
+        var textSplitter = new TokenTextSplitter();
+        simpleVectorStore.accept(textSplitter.apply(pdfReader.get()));
+    }
+
+    private PagePdfDocumentReader createPdfReader(Resource pdfResource) {
+        var config = createPdfDocumentReaderConfig();
+        return new PagePdfDocumentReader(pdfResource, config);
+    }
+
+    private PdfDocumentReaderConfig createPdfDocumentReaderConfig() {
+        return PdfDocumentReaderConfig.builder()
                 .withPageExtractedTextFormatter(
                         new ExtractedTextFormatter.Builder()
                                 .build())
                 .build();
-        SimpleVectorStore simpleVectorStore = new SimpleVectorStore(embeddingClient);
-        var pdfReader = new PagePdfDocumentReader(pdfResource, config);
-        var textSplitter = new TokenTextSplitter();
-        simpleVectorStore.accept(textSplitter.apply(pdfReader.get()));
-        return simpleVectorStore;
     }
 }
