@@ -16,38 +16,38 @@ import org.springframework.core.io.Resource;
 
 @Slf4j
 @Configuration
-public class RagConfig {
+public class PdfProcessingConfig {
 
     @Value("classpath:pdfDocs/*.pdf")
-    private Resource[] pdfResources;
+    private Resource[] documentResources;
 
     @Bean
     VectorStore vectorStore(EmbeddingClient embeddingClient) {
+
+        var config = createPdfDocumentReaderConfig();
+        var textSplitter = new TokenTextSplitter();
         SimpleVectorStore simpleVectorStore = new SimpleVectorStore(embeddingClient);
-        for (Resource pdfResource : pdfResources) {
-            processPdfResource(simpleVectorStore, pdfResource);
+
+        for (Resource documentResource : documentResources) {
+            addResourceToStore(simpleVectorStore, textSplitter, config, documentResource);
         }
+
         return simpleVectorStore;
     }
 
     @SneakyThrows
-    private void processPdfResource(SimpleVectorStore simpleVectorStore, Resource pdfResource) {
-        log.info("Processing Resource {}", pdfResource.getFilename());
-        var pdfReader = createPdfReader(pdfResource);
-        var textSplitter = new TokenTextSplitter();
-        simpleVectorStore.accept(textSplitter.apply(pdfReader.get()));
-    }
+    private void addResourceToStore(SimpleVectorStore simpleVectorStore, TokenTextSplitter textSplitter,
+                                    PdfDocumentReaderConfig config, Resource documentResource) {
+        log.info("Processing Resource {}", documentResource.getFilename());
 
-    private PagePdfDocumentReader createPdfReader(Resource pdfResource) {
-        var config = createPdfDocumentReaderConfig();
-        return new PagePdfDocumentReader(pdfResource, config);
+        PagePdfDocumentReader documentReader = new PagePdfDocumentReader(documentResource, config);
+
+        simpleVectorStore.accept(textSplitter.apply(documentReader.get()));
     }
 
     private PdfDocumentReaderConfig createPdfDocumentReaderConfig() {
         return PdfDocumentReaderConfig.builder()
-                .withPageExtractedTextFormatter(
-                        new ExtractedTextFormatter.Builder()
-                                .build())
+                .withPageExtractedTextFormatter(new ExtractedTextFormatter.Builder().build())
                 .build();
     }
 }
