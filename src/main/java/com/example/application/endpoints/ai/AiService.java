@@ -23,7 +23,6 @@ public class AiService {
 
     private final ChatClient chatClient;
     private final VectorStore vectorStore;
-
     @Value("classpath:prompts/rag-prompt-template.st")
     private Resource ragPromptTemplate;
 
@@ -32,23 +31,24 @@ public class AiService {
         this.vectorStore = vectorStore;
     }
 
-
-    /**
-     * Service method used for communicating with ChatGPT and embedding context
-     *
-     * @param query the prompt to send to openai api
-     * @return the response with augmented data
-     */
     public String chat(String query) {
+        String contentList = getSimilarDocumentsContent(query);
+        Prompt prompt = createPrompt(query, contentList);
+        return chatClient.call(prompt).getResult().getOutput().getContent();
+    }
+
+    private String getSimilarDocumentsContent(String query) {
         List<Document> similarDocuments = vectorStore.similaritySearch(query);
-        String contentList = similarDocuments.stream()
+        return similarDocuments.stream()
                 .map(Document::getContent)
                 .collect(Collectors.joining(System.lineSeparator()));
+    }
+
+    private Prompt createPrompt(String query, String contentList) {
         PromptTemplate promptTemplate = new PromptTemplate(ragPromptTemplate);
         Map<String, Object> promptParameters = new HashMap<>();
         promptParameters.put("input", query);
         promptParameters.put("documents", String.join("\n", contentList));
-        Prompt prompt = promptTemplate.create(promptParameters);
-        return chatClient.call(prompt).getResult().getOutput().getContent();
+        return promptTemplate.create(promptParameters);
     }
 }
