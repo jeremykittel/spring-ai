@@ -3,48 +3,54 @@ import {MessageList, MessageListItem} from "@hilla/react-components/MessageList"
 import {AiService} from 'Frontend/generated/endpoints.js';
 import {MessageInput} from "@hilla/react-components/MessageInput";
 
-export default function ChatView() {
-
-    const [messages, setMessages] = useState<MessageListItem[]>([]);
-
-    const getStoredMessages = () => {
-        let storedMessages = sessionStorage.getItem('messages');
+function useSessionStorage<T>(key: string, initialValue: T): [T, React.Dispatch<React.SetStateAction<T>>] {
+    const [value, setValue] = useState(() => {
+        let storedValue = sessionStorage.getItem(key);
         try {
-            return storedMessages ? JSON.parse(storedMessages) : [];
+            return storedValue ? JSON.parse(storedValue) : initialValue;
         } catch (error) {
-            console.error("Error parsing stored messages:", error);
-            return [];
+            console.error(`Error parsing stored ${key}:`, error);
+            return initialValue;
         }
-    }
-
-    const storeMessages = (messages: MessageListItem[]) => {
-        sessionStorage.setItem('messages', JSON.stringify(messages));
-    }
+    });
 
     useEffect(() => {
-        setMessages(getStoredMessages());
-    }, []);
+        sessionStorage.setItem(key, JSON.stringify(value));
+    }, [key, value]);
 
-    useEffect(() => {
-        storeMessages(messages)
-    }, [messages]);
+    return [value, setValue];
+}
 
-    async function sendMessage(message: string) {
-        setMessages(messages => [...messages, {
-            text: message,
+export default function ChatView() {
+    const [messages, setMessages] = useSessionStorage<MessageListItem[]>('messages', []);
+
+    const addMessage = (message: MessageListItem) => {
+        setMessages(messages => [...messages, message]);
+    }
+
+    const addUserMessage = (text: string) => {
+        addMessage({
+            text,
             userName: 'You',
             time: new Date().toLocaleTimeString(),
             userImg: "images/profile-user.png",
             theme: 'current-user',
-        }]);
+        });
+    }
 
-        const response = await AiService.chat(message);
-        setMessages(messages => [...messages, {
+    const addBotMessage = (response: string) => {
+        addMessage({
             text: response,
             userName: 'Assistant',
             userImg: "images/bot.png",
-            time: new Date().toLocaleTimeString()
-        }]);
+            time: new Date().toLocaleTimeString(),
+        });
+    }
+
+    const sendMessage = async (message: string) => {
+        addUserMessage(message);
+        const response = await AiService.chat(message) as string;
+        addBotMessage(response);
     }
 
     return (
