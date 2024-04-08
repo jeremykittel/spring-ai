@@ -5,6 +5,7 @@ import MainView from "Frontend/views/main/MainView";
 
 const AboutView = lazy(async () => import('Frontend/views/about/AboutView.js'));
 const ChatView = lazy(async () => import('Frontend/views/chat/ChatView.js'));
+const ReactiveView = lazy(async () => import('Frontend/views/Reactive/ReactiveView'));
 
 export type MenuProps = Readonly<{
   icon?: string;
@@ -37,7 +38,8 @@ export const routes: readonly ViewRouteObject[] = [
     children: [
       { path: '/', element: <MainView />, handle: { icon: 'globe-solid', title: 'Main' } },
       { path: '/about', element: <AboutView />, handle: { icon: 'file', title: 'About' } },
-      { path: '/chat', element: <ChatView />, handle: { icon: 'robot-solid', title: 'Chat' } }
+      { path: '/chat', element: <ChatView />, handle: { icon: 'robot-solid', title: 'Chat' } },
+      { path: '/reactive', element: <ReactiveView />, handle: { icon: 'react', title: 'Reactive' } },
     ],
   },
 ];
