@@ -1,7 +1,7 @@
 package com.example.application.endpoints.ai;
 
 import com.vaadin.flow.server.auth.AnonymousAllowed;
-import dev.hilla.Endpoint;
+import dev.hilla.BrowserCallable;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.ai.chat.ChatClient;
 import org.springframework.ai.chat.prompt.Prompt;
@@ -17,7 +17,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 @Slf4j
-@Endpoint
+@BrowserCallable
 @AnonymousAllowed
 public class AiService {
 
