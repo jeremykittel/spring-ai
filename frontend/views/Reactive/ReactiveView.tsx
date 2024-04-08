@@ -12,8 +12,9 @@ export default function ReactiveView() {
         if (subscription) {
             subscription.cancel();
             setSubscription(undefined);
-            Notification.show(`Ended:  ${serverTime}`, {
+            Notification.show(`Ended: ${serverTime}`, {
                 position: 'bottom-center',
+                theme: 'error'
             });
         } else {
             setSubscription(getClockCancellable().onNext((time) => {
@@ -21,6 +22,7 @@ export default function ReactiveView() {
             }));
             Notification.show(`Started:  ${serverTime}`, {
                 position: 'bottom-center',
+                theme: 'success'
             });
         }
     }
