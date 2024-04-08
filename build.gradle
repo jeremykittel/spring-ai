@@ -1,47 +1,48 @@
 buildscript {
-	repositories {
-		mavenCentral()
-		maven { setUrl("https://maven.vaadin.com/vaadin-prereleases") }
-		maven { setUrl("https://repo.spring.io/milestone") }
-	}
+    repositories {
+        mavenCentral()
+        maven { setUrl("https://maven.vaadin.com/vaadin-prereleases") }
+        maven { setUrl("https://repo.spring.io/milestone") }
+    }
 }
 plugins {
-	id 'java'
-	id 'org.springframework.boot' version '3.2.4'
-	id 'io.spring.dependency-management' version '1.1.4'
-	id 'dev.hilla' version "$hillaVersion"
+    id 'java'
+    id 'org.springframework.boot' version '3.2.4'
+    id 'io.spring.dependency-management' version '1.1.4'
+    id 'dev.hilla' version "$hillaVersion"
 }
 
 configurations {
-	compileOnly {
-		extendsFrom annotationProcessor
-	}
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
 }
 
 repositories {
-	mavenCentral()
-	maven { setUrl("https://maven.vaadin.com/vaadin-prereleases") }
-	maven { setUrl("https://repo.spring.io/milestone") }
-	maven { setUrl 'https://repo.spring.io/snapshot' }
-	maven {
-		setUrl("https://maven.vaadin.com/vaadin-addons")
-	}
+    mavenCentral()
+    maven { setUrl('https://maven.vaadin.com/vaadin-prereleases') }
+    maven { setUrl('https://repo.spring.io/milestone') }
+    maven { setUrl('https://repo.spring.io/snapshot') }
+    maven { setUrl('https://maven.vaadin.com/vaadin-addons') }
 }
 
 dependencies {
-	implementation 'dev.hilla:hilla-react-spring-boot-starter'
-	implementation 'org.parttio:line-awesome:2.0.0'
-	implementation 'org.springframework.ai:spring-ai-openai-spring-boot-starter'
-	implementation 'org.springframework.ai:spring-ai-pdf-document-reader'
-	annotationProcessor 'org.projectlombok:lombok'
-	compileOnly 'org.projectlombok:lombok'
-	developmentOnly 'org.springframework.boot:spring-boot-devtools'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    implementation 'dev.hilla:hilla-react-spring-boot-starter'
+    implementation 'org.parttio:line-awesome:2.0.0'
+    implementation 'org.springframework.ai:spring-ai-openai-spring-boot-starter'
+    implementation 'org.springframework.boot:spring-boot-starter-amqp'
+    implementation 'org.springframework.ai:spring-ai-pdf-document-reader'
+    annotationProcessor 'org.projectlombok:lombok'
+    compileOnly 'org.projectlombok:lombok'
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+    developmentOnly 'org.springframework.boot:spring-boot-docker-compose'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.springframework.amqp:spring-rabbit-test'
 }
 
 dependencyManagement {
-	imports {
-		mavenBom "dev.hilla:hilla-bom:${hillaVersion}"
-		mavenBom "org.springframework.ai:spring-ai-bom:${springAiVersion}"
-	}
+    imports {
+        mavenBom "dev.hilla:hilla-bom:${hillaVersion}"
+        mavenBom "org.springframework.ai:spring-ai-bom:${springAiVersion}"
+    }
 }

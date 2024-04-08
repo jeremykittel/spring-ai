@@ -1,4 +1,4 @@
-package com.example.application.rag;
+package com.example.application.config.rag;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.ai.embedding.EmbeddingClient;
@@ -16,8 +16,8 @@ import org.springframework.core.io.Resource;
 /**
  * Configuration class for PDF processing.
  */
-@Slf4j
 @Configuration
+@Slf4j
 public class PdfProcessingConfig {
 
     @Value("classpath:pdfDocs/*.pdf")

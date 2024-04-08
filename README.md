@@ -48,6 +48,11 @@ source directory, contains the server-side Java views</td></tr>
   <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;<code>Application.java</code></td><td>Server entry-point</td></tr>
 </table>
 
+### Docker Compose support
+
+This project contains a Docker Compose file named `compose.yaml` 
+which creates a `RabbitMQ` Service with Admin Interface.
+
 ## Useful links
 - Spring AI documentation at [spring-ai](https://docs.spring.io/spring-ai/reference/index.html)
 - Read the documentation at [hilla.dev/docs](https://hilla.dev/docs/).
