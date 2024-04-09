@@ -19,6 +19,9 @@ export default function ReactiveView() {
         } else {
             setSubscription(getAmqpMessageCancellable().onNext((message) => {
                 setServerMessage(message);
+                Notification.show(message, {
+                    position: 'bottom-center'
+                });
             }));
             Notification.show('Subscription started.', {
                 position: 'bottom-center',
