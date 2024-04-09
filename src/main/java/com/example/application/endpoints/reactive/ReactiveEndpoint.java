@@ -21,14 +21,17 @@ public class ReactiveEndpoint {
 
     /**
      * Retrieves a Flux of messages.
+     *
      * <p>
-     * This method internally calls the consumeMessages() method of the RabbitMQConsumer class to retrieve the messages.
-     * It returns a Flux of messages.
+     * This method calls the {@link RabbitMQConsumer#consumeMessages()} method internally to consume messages from a RabbitMQ queue.
+     * It then applies the onBackpressureDrop strategy to handle backpressure.
      *
      * @return a Flux of messages
+     *
+     * @see RabbitMQConsumer#consumeMessages()
      */
     public Flux<String> getMessages() {
-        return this.consumer.consumeMessages();
+        return this.consumer.consumeMessages().onBackpressureDrop();
     }
 
     /**
