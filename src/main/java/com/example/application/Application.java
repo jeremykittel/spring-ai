@@ -30,7 +30,7 @@ public class Application implements AppShellConfigurator, CommandLineRunner {
     }
 
     @Override
-    public void run(String... args) throws Exception {
+    public void run(String... args) {
         producer.sendMessage("Test");
     }
 }
