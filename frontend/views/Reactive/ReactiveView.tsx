@@ -2,25 +2,25 @@ import {useState} from "react";
 import {Subscription} from "@hilla/frontend";
 import {TextField} from "@hilla/react-components/TextField";
 import {Button} from "@hilla/react-components/Button";
-import {getClockCancellable} from "Frontend/generated/ReactiveEndpoint";
-import { Notification } from '@hilla/react-components/Notification.js';
+import {getAmqpMessageCancellable} from "Frontend/generated/ReactiveEndpoint";
+import {Notification} from '@hilla/react-components/Notification.js';
 
 export default function ReactiveView() {
-    const [serverTime, setServerTime] = useState("");
+    const [serverMessage, setServerMessage] = useState("");
     const [subscription, setSubscription] = useState<Subscription<string> | undefined>();
-    const toggleServerClock = async () => {
+    const toggleServerMessages = async () => {
         if (subscription) {
             subscription.cancel();
             setSubscription(undefined);
-            Notification.show(`Ended: ${serverTime}`, {
+            Notification.show('Subscription Ended.', {
                 position: 'bottom-center',
                 theme: 'error'
             });
         } else {
-            setSubscription(getClockCancellable().onNext((time) => {
-                setServerTime(time);
+            setSubscription(getAmqpMessageCancellable().onNext((message) => {
+                setServerMessage(message);
             }));
-            Notification.show(`Started:  ${serverTime}`, {
+            Notification.show('Subscription started.', {
                 position: 'bottom-center',
                 theme: 'success'
             });
@@ -29,8 +29,8 @@ export default function ReactiveView() {
 
     return (
         <section className="flex p-m gap-m items-end">
-            <TextField label="Server time" value={serverTime} readonly style={{ width: "350px" }}/>
-            <Button onClick={toggleServerClock}>Toggle server clock</Button>
+            <TextField label="Server Message" value={serverMessage} readonly style={{width: "350px"}}/>
+            <Button onClick={toggleServerMessages}>Toggle server messages</Button>
         </section>
     );
 }
