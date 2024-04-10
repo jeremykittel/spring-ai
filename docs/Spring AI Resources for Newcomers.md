@@ -1,3 +1,9 @@
+RAG
+https://blogs.nvidia.com/blog/what-is-retrieval-augmented-generation/
+
+Vector Stores
+https://www.mongodb.com/basics/vector-stores#:~:text=Typically%20found%20in%20vector%20databases,or%20a%20user's%20browsing%20habits.
+
 YouTube video "Building Intelligent Applications with Spring AI" from JetBrains
 https://www.youtube.com/watch?v=x6KmUyPWy2Q
 
@@ -13,8 +19,7 @@ Prompt Engineering Course
 https://www.deeplearning.ai/short-courses/chatgpt-prompt-engineering-for-developers/
 
 Spring AI - Spring AI is an application framework for AI engineering. Its goal is to apply to the AI domain using
-Springs ecosystem design principles such as portability and modular design and promote using POJOs as the building
-blocks of an application to the AI domain.
+Spring ecosystem design principles include portability and modular design, and it promotes using POJOs as the building blocks of an application in the AI domain.
 https://github.com/spring-projects/spring-ai
 
 Spring CLI - The Spring CLI aims to increase your productivity when creating new projects and adding functionality to
@@ -63,3 +68,4 @@ Lesson: buy credits in intervals like $40.01, $40.02 to identify them against fu
 **.
 
 https://openai.com/policies/service-credit-terms
+
