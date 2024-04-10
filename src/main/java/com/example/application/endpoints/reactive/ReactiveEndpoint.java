@@ -31,7 +31,7 @@ public class ReactiveEndpoint {
      * @see RabbitMQConsumer#consumeMessages()
      */
     public Flux<String> getMessages() {
-        return this.consumer.consumeMessages().onBackpressureDrop();
+        return this.consumer.consumeMessages().onBackpressureDrop().log();
     }
 
     /**
