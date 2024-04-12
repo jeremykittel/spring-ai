@@ -1,6 +1,6 @@
 package com.example.application;
 
-import com.example.application.producer.RabbitMQProducer;
+import com.example.application.endpoints.ai.DataLoadingService;
 import com.vaadin.flow.component.page.AppShellConfigurator;
 import com.vaadin.flow.server.PWA;
 import com.vaadin.flow.theme.Theme;
@@ -19,10 +19,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @Theme(value = "sandbox-theme")
 public class Application implements AppShellConfigurator, CommandLineRunner {
 
-    private final RabbitMQProducer producer;
+    private final DataLoadingService dataLoadingService;
 
-    public Application(RabbitMQProducer producer) {
-        this.producer = producer;
+    public Application(DataLoadingService dataLoadingService) {
+        this.dataLoadingService = dataLoadingService;
     }
 
     public static void main(String[] args) {
@@ -31,6 +31,6 @@ public class Application implements AppShellConfigurator, CommandLineRunner {
 
     @Override
     public void run(String... args) {
-        producer.sendMessage("Test");
+        dataLoadingService.load();
     }
 }

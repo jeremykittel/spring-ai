@@ -2,6 +2,7 @@ import {useEffect, useState} from "react";
 import {MessageList, MessageListItem} from "@hilla/react-components/MessageList";
 import {AiService} from 'Frontend/generated/endpoints.js';
 import {MessageInput} from "@hilla/react-components/MessageInput";
+import {Button} from "@hilla/react-components/Button";
 
 function useSessionStorage<T>(key: string, initialValue: T): [T, React.Dispatch<React.SetStateAction<T>>] {
     const [value, setValue] = useState(() => {
@@ -57,6 +58,7 @@ export default function ChatView() {
         <div className="p-m flex flex-col h-full box-border">
             <MessageList items={messages} className="flex-grow"/>
             <MessageInput onSubmit={e => sendMessage(e.detail.value)}/>
+            <Button onClick={() => setMessages([])} theme="secondary error">Clear</Button>
         </div>
     );
 }

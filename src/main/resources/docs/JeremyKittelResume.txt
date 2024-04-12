@@ -1,0 +1,149 @@
+Jeremy Kittel Resume
+
+Profile	 
+A senior full-stack developer with over a decade of experience in enterprise technology, demonstrating proficiency across the Software Development Life Cycle. Technical expertise includes Java, Spring, and Hibernate, as well as building modern user interfaces using leading JavaScript frameworks. Experience integrating large-scale systems, utilizing service-oriented architectures, and implementing web services. Proficient at working with diverse data structures such as SQL and NoSQL, ensuring robust system integrity and security through modern Identity Management practices.
+ 
+Demonstrates the ability to solve problems quickly and deeply understands best practices, delivering high-performance applications that exceed client expectations. Possesses a strong work ethic and a commitment to crafting innovative solutions that drive business success. Actively and eagerly seeks continuous learning and skill expansion opportunities, thriving in challenging environments. Capable of working independently or as part of a collaborative team effort, fostering a supportive environment, and mentoring new team members. Continuously adaptable and collaborative, seamlessly integrating into existing teams and effectively contributing to new projects.
+
+Highlights 
+•	Developed enterprise applications with Java, Spring, and Hibernate in addition to J2EE technologies.
+•	Developed responsive web interfaces using modern JavaScript frameworks for consumption on any web device.
+•	Integrated systems using REST/JSON and or SOAP/XML web services.
+•	Leveraged LDAP and SAML2 for attribute collection, authentication, and single sign-on (SSO)
+•	Used multiple databases, including Oracle, MySQL, and MSSQL
+•	Provides automated testing via JUnit, Spock, Cypress, and Selenium.
+•	Performed code debugging for Java, JavaScript, and related web-based languages and executed performance testing using JProfiler and JMeter.
+•	Used multiple IDEs, including IntelliJ and Eclipse
+•	Experienced working in Agile environments leveraging SCRUM.
+•	Able to demonstrate foundational knowledge of AWS cloud services, principles, and best practices.
+
+Experience 
+
+Consultant
+Solution Design Group, June 2017 to Present 
+
+Prime Therapeutics
+•	Developed and maintained microservices using Spring Boot to enhance scalability and modularity.
+•	Implemented RESTful APIs for communication between microservices, ensuring efficient data exchange.
+•	Designed and implemented event-driven communication between microservices using reactive messaging.
+•	Integrated Kafka and RabbitMQ for asynchronous event processing and decoupling of microservices.
+•	Dockerized microservices for containerization, enabling consistent deployment across various environments.
+•	Worked with orchestration tools like Tanzu Kubernetes to manage, scale, and orchestrate the deployment of microservices.
+•	Integrated MongoDB as a NoSQL database for Spring Boot applications using Spring Data MongoDB.
+•	Utilized Testcontainers for integration testing to simulate fundamental database interactions.
+•	Implemented and configured GitHub Actions workflows to automate the CI process for projects.
+•	Integrated unit tests, code quality checks, and other automated validations are included in CI workflows to ensure code reliability.
+•	Collaborated with cross-functional teams to understand requirements and deliver high-quality, reactive microservices solutions.
+•	Participated in agile development processes, including sprint planning, retrospectives, and daily stand-ups.
+•	Technologies Used: IntellijIdea, Java 8,11,17, Spring WebFlux, Tanzu VMWare, GitHub, Docker, MongoDB, Jira, Postgres.
+
+UNFI
+•	Supported team velocity for developing microservices of a business-to-business digital ordering platform.
+•	Created an email reporting service utilizing a bin-packing algorithm to distribute report attachments.
+•	Performed code and peer reviews and worked with QA to validate completed work.
+•	Technologies Used: IntellijIdea, Java 8,11,17, Groovy, Google Cloud Platform, GitLab, Docker, Redis, Jira, Veracode, SonarLint, MySQL
+
+Cargill
+•	Helped advocate and implement Typescript into the front-end workflow.
+•	Supported initiative to migrate front-end from AEM to React and Strapi CMS.
+•	Developed a solution to migrate Email templates from AEM into React and Spring boot microservice.
+•	Enhanced multiple existing event-driven microservices to respond to commodity price notifications utilizing ActiveMQ for message notification.
+•	Added new features to an OSGi-driven desktop client application for traders to view/administer new trade lines for physical commodities. 
+•	Created several Rest/JSON-based microservices to support key integrations for instruments and trades. 
+•	Managed the build and deployment of Jersey-based microservice applications for CI/CD utilizing Maven, Artifactory, and Bamboo. 
+•	Technologies Used: Eclipse Luna, IntellijIdea, OSGi, Eclipse EMF (Ecore), Eclipse Equinox, Teneo Persistence, Jersey, Nexus, Artifactory, Maven, Bamboo, Jira, Confluence, Spring Core, Hibernate, ActiveMQ, Oracle, Java 6,7,8, JRebel, XRebel, React, TypeScript, MUI, Strapi CMS
+
+Pace Analytical 
+•	Worked with a small development team to add an order entry module to an existing application using ExtJS, Spring Frameworks, and Oracle.
+•	Performed Code reviews using Crucible, Bamboo, or Peer-To-Peer and mentored engineers when applicable.
+•	Participated in daily SCRUMS and weekly group code reviews.
+•	Supported existing production systems and performed code changes as needed.
+•	Enhanced existing Oracle stored procedures related to ongoing projects.
+•	Helped identify any overhead from Hibernate-generated SQL, i.e., N+1 Problems, SQL Batching, and potential Lazy Loading Issues.
+•	Technologies Used: Spring Core, Spring JPA/Hibernate, Spring Web, Spring Security, Oracle, EXTJS, Angular, IntellijIdea, Cypress IO, Tomcat, Java 8, Jasper Reports, Bamboo, Jira, Confluence, Git, Mercurial, JRebel, XRebel, Artifactory, and Maven
+
+Merrill Corporation 
+•	Performed as a full-stack engineer with little guidance from other team members to develop and maintain an ETL processing application utilizing Spring frameworks and other tools within the Java ecosystem.
+•	Developed updates to an existing application that processed XML files in batches for sending digital invoices using Spring Batch. 
+•	Invoked PDF and AFP typesetting using inspire-service (web wrapper for Inspire Designer). 
+•	Provided the ability to review PDF proofs of letter batches and release/reject individual letters, which were exposed to the client via the Internet. 
+•	Provided code fixes and enhancements to existing applications. Refactored areas of code that require performance improvement. Create/update Unit tests for any new business logic.
+•	Technologies Used: Spring Core, Spring Batch, Spring JPA/Hibernate, Spring Web, Spring Security, Spring WS, IntellijIdea, MySQL, OxygenXML, Tomcat, Java 6,7, Inspire Designer, Bamboo, Git, Perforce, Artifactory, and Maven
+
+Software Engineer
+MediaBeacon, May 2012 – June 2017  
+•	Held position as a full-stack engineer with 20 developers while maintaining and enhancing a Digital Asset Management Platform using various frameworks and tools within the Java ecosystem.
+•	Implemented the Integration of Single Sign-On Authentication into MediaBeacon leveraging Spring SAML extension.
+•	Daily interaction with the Professional Services Team to understand use cases and domain knowledge and facilitate engineering support for pre-sales, POC, and production implementations.
+•	Troubleshoot production support issues post-deployment and produce solutions as required.
+•	Participated in daily stand-ups and conducted design and code reviews to ensure the code developed adhered to general coding best practices.
+•	Develop and maintain unit, integration, and selenium tests to promote code quality.
+•	Technologies Used: Java 6,7,8, GWT, JavaScript, XML, J2EE, HTML, REST, SOAP, SOA, SQL, MS SQL Server, MySQL, JUnit, jQuery, Spring Framework, Maven, Ant, GWT, CSS, SAML
+
+Support Engineer
+MediaBeacon, October 2007 – May 2012
+•	Performed on-site and remote installations of MediaBeacon Enterprise Digital Asset Management solutions.
+•	Worked with Client Support and Engineering teams to correct issues reported on client sites.
+•	Provided network and systems support for the corporate LAN.
+•	Managed and tracked customer support issues using the help desk system.
+•	Technologies Used: Astaro Firewall, MS Office, Adobe CC, JMeter, JProfiler, Java, Xinet, Xsan, OSX, Linux, Windows, VMWare ESX, VMWare Fusion.
+
+Field Technician
+Techies Outsourced I.T., December 2006 – October 2007
+•	Travel daily to multiple client locations, providing various I.T. services for small-medium businesses within the Twin Cities.
+•	Provided break/fix services for both Mac and PC-based clientele.
+•	Technologies Used: OSX, Windows
+
+I.T. Manager
+Superior Brokerage Services, Inc., January 2003 – December 2006
+•	Responsible for ensuring the integrity of all hardware and software required, allowing SBS to perform their daily functions. 
+•	Performed hardware maintenance and upgrades of both server and desktop equipment.
+•	Responsible for backing up mission-critical data (daily) and providing anti-virus administration.
+•	Maintained the building's security and telephone systems, including landline and cellular networks.
+•	Technologies Used: Windows
+
+Junior Application Developer
+Anderson Performance Improvement, January 2000 – January 2001
+•	Responsible for supporting and adding enhancements to existing cold fusion applications for an online rewards catalog.
+•	Assisted in defining and implementing custom rewards programs using Visual Basic and MSSQL.
+•	Technologies Used: Cold Fusion, MSSQL
+
+Junior Application Developer
+Home Buyers Marketing II, Inc., January 1999 – January 2000
+•	Developed, tested, implemented, and maintained custom reporting applications using Visual Basic and MS Access for direct mailings to Home Buyers, Loan Officers, and Real Estate Agents. 
+•	Responsible for harvesting MLS Data from various sources and storing it in common SQL databases.
+•	Technologies Used: Visual Basic, MS Access, MSSQL
+
+Personal Info 
+Phone
++1-612-964-7032
+
+E-mail
+Jeremy.kittel@mac.com
+
+LinkedIn
+www.linkedin.com/in/jeremykittel
+
+Technologies
+Programming Languages: Java, JavaScript, TypeScript
+Frameworks: Spring (Core, Security, Batch Boot, JPA, MVC), Hibernate, React
+Web Technologies: HTML5, CSS3, NPM, jQuery, Bootstrap, MUI, Strapi CMS
+Web Services: REST, SOAP, JSON, XML, JMS
+Identity Management: LDAP, SAML2, SSO
+Database: MySQL, MSSQL, Oracle, PostgreSQL, MongoDB
+Tools: Eclipse, IntelliJ IDEA, Visual Studio, Git, SVN, Linux, Tomcat, Bamboo, Maven, Ant, JUnit, JProfiler, JMeter, Selenium, Nginx, Apache Solr, OxygenXML, AppBundler, Advanced Installer
+Cloud Platforms: AWS (EC2, S3), Azure, Google Cloud Platform
+Other: Jira, GitHub, OKTA, ADFS
+
+Databases
+MySQL, MSSQL, Oracle, PostgreSQL, MongoDB
+
+Methodologies
+Agile, Scrum, TDD
+
+Industry Experience
+Environmental/Life Sciences,
+Food Wholesale Distribution,
+Transportation and Logistics,
+Real Estate, Retail, Manufacturing,
+Healthcare, Entertainment, Printing
