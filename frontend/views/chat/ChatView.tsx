@@ -56,9 +56,10 @@ export default function ChatView() {
 
     return (
         <div className="p-m flex flex-col h-full box-border">
+            <Button onClick={() => setMessages([])} theme="secondary error small" className="self-end m-l"
+                    disabled={messages.length <= 0}>Clear Chat</Button>
             <MessageList items={messages} className="flex-grow"/>
             <MessageInput onSubmit={e => sendMessage(e.detail.value)}/>
-            <Button onClick={() => setMessages([])} theme="secondary error">Clear</Button>
         </div>
     );
 }
