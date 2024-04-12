@@ -23,7 +23,8 @@ function useSessionStorage<T>(key: string, initialValue: T): [T, React.Dispatch<
 }
 
 export default function ChatView() {
-    const [messages, setMessages] = useSessionStorage<MessageListItem[]>('messages', []);
+    const [messages, setMessages]
+        = useSessionStorage<MessageListItem[]>('messages', []);
 
     const addMessage = (message: MessageListItem) => {
         setMessages(messages => [...messages, message]);
