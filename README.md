@@ -1,11 +1,13 @@
 # Demo Application using Spring AI
 
-This project is to show how to use Spring AI to create a ChatBot using OpenAI/ChatGpt API and RAG  using an in-memory SimpleVectorStore to store some documents about Jeremy Kittel.
+This project is to show how to use Spring AI to create a ChatBot using OpenAI/ChatGpt API and RAG using an in-memory
+SimpleVectorStore to store some documents about Jeremy Kittel.
 
 ## Running the application
 
 The project is a standard Gradle Spring Boot project.
-To run it from the command line, type `gradlew bootRun` (Windows), or `./gradlew bootRun` (Mac & Linux), then open http://localhost:8080 in your browser.
+To run it from the command line, type `gradlew bootRun` (Windows), or `./gradlew bootRun` (Mac & Linux), then
+open http://localhost:8080 in your browser.
 
 You can also import the project to your IDE of choice as you would with any Gradle project.
 Then you can run the main method of `Application.java`.
@@ -13,13 +15,20 @@ Then you can run the main method of `Application.java`.
 You will also need an API key set as an environment variable to use the chat feature.
 
 - Create an OpenAI API Key at [OpenAI](https://platform.openai.com/api-keys)
+
 ```text
 export OPEN_AI_KEY=<YOUR-OPEN-AI-API-KEY>
 ```
 
+### Docker Compose support
+
+This project contains a Docker Compose file named `compose.yaml`
+which creates a `RabbitMQ` Service with Admin Interface and a `Redis-Stack` for using as a vector store.
+
 ## Deploying to Production
 
-To create a production build, call `gradlew -Philla.productionMode=true build` (Windows), or `./gradlew -Philla.productionMode=true build` (Mac & Linux).
+To create a production build, call `gradlew -Philla.productionMode=true build` (Windows),
+or `./gradlew -Philla.productionMode=true build` (Mac & Linux).
 This will build a JAR file with all the dependencies and front-end resources, ready to be deployed.
 The file can be found in the `build/libs/` folder after the build completes.
 
@@ -48,12 +57,8 @@ source directory, contains the server-side Java views</td></tr>
   <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;<code>Application.java</code></td><td>Server entry-point</td></tr>
 </table>
 
-### Docker Compose support
-
-This project contains a Docker Compose file named `compose.yaml` 
-which creates a `RabbitMQ` Service with Admin Interface.
-
 ## Useful links
+
 - Spring AI documentation at [spring-ai](https://docs.spring.io/spring-ai/reference/index.html)
 - Read the documentation at [hilla.dev/docs](https://hilla.dev/docs/).
 - Report issues, create pull requests in [GitHub](https://github.com/jeremykittel/spring-ai).
