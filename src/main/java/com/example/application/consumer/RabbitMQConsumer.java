@@ -16,7 +16,7 @@ public class RabbitMQConsumer {
      * RabbitMQConsumer is a class that consumes messages from a RabbitMQ queue and provides a Flux of messages.
      */
     public RabbitMQConsumer() {
-        this.sink = Sinks.many().multicast().directBestEffort();
+        this.sink = Sinks.many().unicast().onBackpressureBuffer();
     }
 
     /**

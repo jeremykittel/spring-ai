@@ -21,30 +21,16 @@ public class ReactiveEndpoint {
 
     /**
      * Retrieves a Flux of messages.
-     *
      * <p>
-     * This method calls the {@link RabbitMQConsumer#consumeMessages()} method internally to consume messages from a RabbitMQ queue.
-     * It then applies the onBackpressureDrop strategy to handle backpressure.
+     * This method consumes messages from a RabbitMQ queue and returns a Flux
+     * that represents the stream of messages. The Flux is configured to handle
+     * backpressure by dropping any excess elements and logs each emitted element.
+     * </p>
      *
      * @return a Flux of messages
-     *
-     * @see RabbitMQConsumer#consumeMessages()
      */
-    public Flux<String> getMessages() {
+    public Flux<@Nonnull String> getMessages() {
         return this.consumer.consumeMessages().onBackpressureDrop().log();
-    }
-
-    /**
-     * Retrieves a Flux of non-null Strings representing the messages.
-     * <p>
-     * This method internally calls the {@link #getMessages()} method to retrieve the messages and print them to the console.
-     * It then returns the Flux of messages.
-     *
-     * @return a Flux of non-null Strings representing the messages
-     */
-    public Flux<@Nonnull String> getMessage() {
-        log.info(getMessages().toString());
-        return getMessages();
     }
 
     /**
@@ -53,6 +39,6 @@ public class ReactiveEndpoint {
      * @return an EndpointSubscription object representing the AMQP message subscription
      */
     public EndpointSubscription<@Nonnull String> getAmqpMessageCancellable() {
-        return EndpointSubscription.of(getMessage(), () -> log.info("Subscription has been cancelled"));
+        return EndpointSubscription.of(getMessages(), () -> log.info("Subscription has been cancelled"));
     }
 }
