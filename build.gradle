@@ -42,11 +42,17 @@ dependencies {
     developmentOnly 'org.springframework.boot:spring-boot-docker-compose'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'org.springframework.amqp:spring-rabbit-test'
+    testImplementation 'io.projectreactor:reactor-test'
 }
 
 dependencyManagement {
     imports {
         mavenBom "dev.hilla:hilla-bom:${hillaVersion}"
         mavenBom "org.springframework.ai:spring-ai-bom:${springAiVersion}"
+        mavenBom "io.projectreactor:reactor-bom:${reactorVersion}"
     }
+}
+
+test {
+    useJUnitPlatform()
 }
