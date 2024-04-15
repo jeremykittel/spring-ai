@@ -27,7 +27,6 @@ public class DataLoadingService {
         this.plainTextReader = plainTextReader;
     }
 
-
     /**
      * Loads text documents and splits them into tokens using a token text splitter.
      */

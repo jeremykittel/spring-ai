@@ -62,7 +62,7 @@ public class AiService {
     /**
      * Creates a prompt using the given query and content list.
      *
-     * @param query       The query string used as input for the prompt.
+     * @param query The query string used as input for the prompt.
      * @param contentList A string representation of the content list, separated by line breaks.
      * @return The created prompt.
      */

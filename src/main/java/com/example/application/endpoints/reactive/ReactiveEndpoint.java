@@ -34,9 +34,14 @@ public class ReactiveEndpoint {
     }
 
     /**
-     * Returns an EndpointSubscription object that represents a cancellable subscription to the AMQP message.
+     * Retrieves an EndpointSubscription for cancellable AMQP messages.
+     * <p>
+     * This method returns an EndpointSubscription that represents the stream
+     * of AMQP messages from a RabbitMQ queue. The EndpointSubscription allows
+     * the subscriber to cancel the subscription when needed.
+     * </p>
      *
-     * @return an EndpointSubscription object representing the AMQP message subscription
+     * @return an EndpointSubscription for cancellable AMQP messages
      */
     public EndpointSubscription<@Nonnull String> getAmqpMessageCancellable() {
         return EndpointSubscription.of(getMessages(), () -> log.info("Subscription has been cancelled"));
