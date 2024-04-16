@@ -10,8 +10,10 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @SpringBootTest
 public class AiServiceIntegrationTest {
+
     @Autowired
     private AiService aiService;
+
     @Test
     public void testChat() {
         String query = "Hello";
