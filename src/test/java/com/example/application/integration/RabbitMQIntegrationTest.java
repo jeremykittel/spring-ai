@@ -19,7 +19,6 @@ import reactor.test.StepVerifier;
 public class RabbitMQIntegrationTest {
 
     public static final String MESSAGE_1 = "Test message 1";
-
     public static final String MESSAGE_2 = "Test message 2";
     public static RabbitMQContainer rabbitMQContainer = new RabbitMQContainer("rabbitmq:3-management-alpine");
 
