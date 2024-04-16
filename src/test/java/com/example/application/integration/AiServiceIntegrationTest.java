@@ -14,8 +14,11 @@ public class AiServiceIntegrationTest extends BaseIntegrationTestConfig {
 
     @Test
     public void testChat() {
+        // given
         String query = "Hello";
+        // when
         String response = aiService.chat(query);
+        // then
         assertNotNull(response);
         assertEquals("Hello! How can I assist you today?", response);
     }

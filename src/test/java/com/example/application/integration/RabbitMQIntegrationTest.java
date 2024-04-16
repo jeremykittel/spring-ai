@@ -21,11 +21,12 @@ public class RabbitMQIntegrationTest extends BaseIntegrationTestConfig {
 
     @Test
     public void givenValidParams_whenServiceIsCalled_theListenerShouldConsumeTheMessage() {
+        // given
         rabbitMQProducer.sendMessage(MESSAGE_1);
         rabbitMQProducer.sendMessage(MESSAGE_2);
-
+        // when
         Flux<String> messages = rabbitMQConsumer.consumeMessages();
-
+        // then
         StepVerifier.create(messages)
                 .expectNext(MESSAGE_1)
                 .expectNext(MESSAGE_2)
