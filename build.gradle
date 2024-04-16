@@ -30,12 +30,12 @@ dependencies {
     implementation 'dev.hilla:hilla-react-spring-boot-starter'
     implementation 'org.parttio:line-awesome:2.0.0'
     implementation 'org.springframework.ai:spring-ai-openai-spring-boot-starter'
-// Redis vector store implementation
-//    implementation 'org.springframework.ai:spring-ai-transformers-spring-boot-starter'
+    // Redis vector store implementation
+    // implementation 'org.springframework.ai:spring-ai-transformers-spring-boot-starter'
     implementation 'org.springframework.boot:spring-boot-starter-amqp'
     implementation 'io.projectreactor.rabbitmq:reactor-rabbitmq:1.5.6'
-// PDF Document reader
-//    implementation 'org.springframework.ai:spring-ai-pdf-document-reader'
+    // PDF Document reader
+    // implementation 'org.springframework.ai:spring-ai-pdf-document-reader'
     annotationProcessor 'org.projectlombok:lombok'
     compileOnly 'org.projectlombok:lombok'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
@@ -43,6 +43,10 @@ dependencies {
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'org.springframework.amqp:spring-rabbit-test'
     testImplementation 'io.projectreactor:reactor-test'
+    testImplementation 'org.springframework.boot:spring-boot-testcontainers'
+    testImplementation 'org.testcontainers:rabbitmq:1.19.7'
+    testImplementation 'org.awaitility:awaitility:4.2.1'
+    testImplementation 'org.testcontainers:junit-jupiter:1.17.3'
 }
 
 dependencyManagement {
