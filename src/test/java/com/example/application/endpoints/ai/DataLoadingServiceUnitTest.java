@@ -17,7 +17,7 @@ import static org.mockito.Mockito.*;
  */
 @Slf4j
 @ExtendWith(MockitoExtension.class)
-public class DataLoadingServiceTest {
+public class DataLoadingServiceUnitTest {
 
     /**
      * This test validates the correct operation of the load() method.
