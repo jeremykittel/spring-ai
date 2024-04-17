@@ -17,23 +17,34 @@ import java.util.List;
 @Service
 @Slf4j
 public class DataLoadingService {
-
     private final VectorStore vectorStore;
-
     private final PlainTextReader plainTextReader;
+    private final TokenTextSplitter tokenTextSplitter;
 
-    public DataLoadingService(VectorStore vectorStore, PlainTextReader plainTextReader) {
+    public DataLoadingService(VectorStore vectorStore, PlainTextReader plainTextReader, TokenTextSplitter tokenTextSplitter) {
         this.vectorStore = vectorStore;
         this.plainTextReader = plainTextReader;
+        this.tokenTextSplitter = tokenTextSplitter;
     }
 
     /**
      * Loads text documents and splits them into tokens using a token text splitter.
      */
     public void load() {
-        List<Document> documents = plainTextReader.loadText();
-        TokenTextSplitter tokenTextSplitter = new TokenTextSplitter();
-       vectorStore.accept(tokenTextSplitter.apply(documents));
+        try {
+            log.info("Loading text documents...");
+            List<Document> documents = plainTextReader.loadText();
+            if (documents != null) {
+                log.info("Splitting text into tokens...");
+                vectorStore.accept(tokenTextSplitter.apply(documents));
+                log.info("Text has been successfully loaded and split into tokens.");
+            } else {
+                log.warn("No documents were loaded. Skipping token splitting.");
+            }
+        } catch (Exception e) {
+            log.error("An error occurred while loading text documents and splitting them into tokens", e);
+            throw new RuntimeException("Failed to load and split text documents", e);
+        }
 
     }
 }
