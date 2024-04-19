@@ -62,4 +62,3 @@ source directory, contains the server-side Java views</td></tr>
 - Spring AI documentation at [spring-ai](https://docs.spring.io/spring-ai/reference/index.html)
 - Read the documentation at [hilla.dev/docs](https://hilla.dev/docs/).
 - Report issues, create pull requests in [GitHub](https://github.com/jeremykittel/spring-ai).
-
