@@ -37,7 +37,7 @@ The Spring Image Generation API is built on top of the Spring AI `Generic Model
 
 # Transcription API
 
-Spring AI provides support for OpenAI’s Transcription API. A common AudioTranscriptionClient interface will be extracted when additional transcription providers are implemented.
+Spring AI provides support for OpenAI’s Transcription API. Spring will provide a common AudioTranscriptionClient interface that will be extracted when additional transcription providers are implemented.
 
 # Vector Databases
 

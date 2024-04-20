@@ -1,43 +1,216 @@
+# Slide 1:
 
-**Slide 1: Introduction to Chat Completion API**
+[Slide Title: Spring AI Overview]
 
-- Title: Chat Completion API
-- Description: Integrate AI-powered chat completion into your applications with ease.
+[Visual: Collage-style layout with icons representing different AI functionalities]
 
-**Slide 2: What is the Chat Completion API?**
+[Text:]
 
-- Description: Utilizes pre-trained language models like GPT for generating human-like responses to user inputs.
+- **Chat Completion API**: Integrate AI-powered chat capabilities leveraging pre-trained language models like GPT.
 
-**Slide 3: How it Works**
+- **Embeddings API**: Convert text into numerical vectors for tasks like semantic analysis and classification.
 
-- Description: API sends prompts or partial conversations to AI models, which generate completions based on natural language understanding.
+- **Image Generation API**: Interact with various AI Models specialized in image generation with a unified interface.
 
-**Slide 4: Spring AI Chat Completion API**
+- **Transcription API**: Support for OpenAI’s Transcription API for audio data processing.
 
-- Description: A simple, portable interface allowing seamless interaction with various AI models.
+- **Vector Databases**: Specialized databases for similarity searches, crucial for AI applications.
 
-**Slide 5: Simplified Interaction**
+- **Function Calling API**: Permit AI models to execute client-side functions dynamically.
 
-- Description: Companion classes like Prompt and ChatResponse simplify API interaction, managing request preparation and response parsing.
+- **Prompts**: Guide AI models for specific outputs, evolving to higher levels of abstraction.
 
-**Slide 6: Supported AI Models**
+- **Output Parsers**: Obtain structured output from AI models for easier integration into applications.
 
-- Description: Compatible with various models including Open AI, Ollama, Azure OpenAI, and more.
+- **ETL Pipeline**: Backbone for data processing in Retrieval Augmented Generation (RAG) use cases.
 
-**Slide 7: Introduction to Embeddings API**
+- **Generic Model API**: Foundation for all AI Model clients, facilitating standardized development.
 
-- Title: Embeddings API
-- Description: Convert text into numerical vectors for AI and machine learning tasks.
+[Additional Text (Optional):]
 
-**Slide 8: Portability and Simplicity**
+- Spring AI provides a comprehensive suite of tools and APIs for diverse AI application development needs, ensuring modularity, interchangeability, and ease of integration.
 
-- Description: Designed for easy integration across different embedding models with minimal code changes.
+# Slide 2:
 
-**Slide 9: Image Generation API**
+[Slide Title: Chat Completion API]
 
-- Title: Image Generation API
-- Description: A portable interface for interacting with image generation AI models.
+[Visual: Image of a chat bubble with an AI logo inside, surrounded by various AI model logos (Open AI, Ollama, Azure OpenAI, Amazon Bedrock, HuggingFace, Google VertexAI, Mistrial AI)]
 
-**Slide 10: Conclusion**
+[Main Text:]
 
-- Description: Spring AI offers a range of APIs including Transcription, Vector Databases, Function Calling, Prompts, Output Parsers, ETL Pipeline, and Generic Model API for seamless integration of AI functionalities into your applications.
+- The Chat Completion API integrates AI-powered chat completion capabilities into applications using pre-trained language models like GPT.
+    
+- Developers send prompts or partial conversations to the AI model, which generates human-like responses based on its training data and understanding of natural language patterns.
+    
+- Spring AI's Chat Completion API provides a simple and portable interface for interacting with various AI models, aligning with Spring's philosophy of modularity and interchangeability.
+    
+
+[Additional Text (Optional):]
+
+- Companion classes like Prompt and ChatResponse streamline communication with AI models, managing request preparation and response parsing for a simplified API interaction.
+
+# Slide 3:
+
+[Slide Title: Embeddings API]
+
+[Visual: Image of text being transformed into numerical vectors, with arrows indicating the conversion process]
+
+[Main Text:]
+
+- The EmbeddingClient interface facilitates integration with embedding models in AI and machine learning, converting text into numerical vectors known as embeddings.
+    
+- Designed for portability, it enables easy adaptation across various embedding models, aligning with Spring's philosophy of modularity and interchangeability.
+    
+- The interface prioritizes simplicity, offering methods like embed(String text) and embed(Document document) to streamline the conversion process, making it accessible even for developers new to AI.
+    
+
+[Additional Text (Optional):]
+
+- Embeddings play a crucial role in tasks such as semantic analysis and text classification, enhancing the capabilities of AI applications.
+
+# Slide 4:
+
+[Slide Title: Image Generation API]
+
+[Visual: Illustration depicting an image being generated by various AI models]
+
+[Main Text:]
+
+- The Spring Image Generation API provides a simple and portable interface for interacting with specialized AI models in image generation.
+    
+- Developers can seamlessly switch between different image-related models with minimal code changes, aligning with Spring’s philosophy of modularity and interchangeability.
+    
+- Companion classes like ImagePrompt and ImageResponse streamline communication with dedicated image generation models, simplifying API interaction.
+    
+
+[Additional Text (Optional):]
+
+- Leveraging the Spring AI Generic Model API, the Image Generation API offers image-specific abstractions and implementations, enhancing the development experience for image-related functionalities.
+
+# Slide 5:
+
+[Slide Title: Transcription API]
+
+[Visual: Graphic representing audio waveform with transcription text overlay]
+
+[Main Text:]
+
+- Spring AI supports OpenAI’s Transcription API, facilitating audio-to-text conversion.
+  
+- A common AudioTranscriptionClient interface will be available, ensuring seamless integration with future transcription providers.
+
+[Additional Text (Optional):]
+
+- This API simplifies the process of transcribing audio content, enabling developers to incorporate speech recognition capabilities into their applications with ease.
+
+# Slide 6:
+
+[Slide Title: Vector Databases in AI]
+
+[Visual: Illustration of interconnected database nodes with AI model icons]
+
+[Main Text:]
+
+- Vector databases play a crucial role in AI applications, enabling similarity searches rather than exact matches.
+
+- These databases integrate data with AI models, utilizing techniques like Retrieval Augmented Generation (RAG) to enhance query results.
+
+- Spring AI provides a versatile interface for multiple vector database implementations, facilitating seamless integration with AI models.
+
+[Additional Text:]
+
+- Explore Spring AI's vector database implementations:
+  - [Azure AI Service](https://docs.spring.io/spring-ai/reference/api/vectordbs/azure.html)
+  - [Chroma](https://docs.spring.io/spring-ai/reference/api/vectordbs/chroma.html)
+  - [Milvus](https://docs.spring.io/spring-ai/reference/api/vectordbs/milvus.html)
+  - [Neo4j](https://docs.spring.io/spring-ai/reference/api/vectordbs/neo4j.html)
+  - [PGvector](https://docs.spring.io/spring-ai/reference/api/vectordbs/pgvector.html)
+  - [Weaviate](https://docs.spring.io/spring-ai/reference/api/vectordbs/weaviate.html)
+  - [Redis](https://docs.spring.io/spring-ai/reference/api/vectordbs/redis.html)
+  - [Pinecone](https://docs.spring.io/spring-ai/reference/api/vectordbs/pinecone.html)
+  - [Qdrant](https://docs.spring.io/spring-ai/reference/api/vectordbs/qdrant.html)
+
+# Slide 7:
+
+[Slide Title: Function Calling API]
+
+[Visual: Graphic representing a connection between AI models and client-side functions]
+
+[Main Text:]
+
+- The Function Calling API allows AI models like ChatGPT to request the execution of client-side functions, enabling dynamic tasks and information access.
+
+- Spring AI supports Function invocation for various AI Models:
+
+  - OpenAI: [Open AI function invocation docs](https://docs.spring.io/spring-ai/reference/api/clients/functions/openai-chat-functions.html)
+  - VertexAI Gemini: [Vertex AI Gemini function invocation docs](https://docs.spring.io/spring-ai/reference/api/clients/functions/vertexai-gemini-chat-functions.html)
+  - Azure OpenAI: [Azure OpenAI function invocation docs](https://docs.spring.io/spring-ai/reference/api/clients/functions/azure-open-ai-chat-functions.html)
+  - Mistral AI: [Mistral AI function invocation docs](https://docs.spring.io/spring-ai/reference/api/clients/functions/mistralai-chat-functions.html)
+
+# Slide 8:
+
+[Slide Title: Prompts in AI]
+
+[Visual: Graphic representing a prompt being input to an AI model, with various outputs generated]
+
+[Main Text:]
+
+- Prompts guide AI models in generating specific outputs, with design and phrasing significantly impacting responses.
+
+- In Spring AI, handling prompts resembles managing the "View" in Spring MVC, involving extensive text with placeholders for dynamic content.
+
+- Spring AI evolves to introduce higher levels of abstraction, akin to JDBC in functionality. Foundational classes like ChatClient pave the way for advanced constructs like ChatEngines.
+
+[Additional Text (Optional):]
+
+- Prompts have evolved from simple strings to structured inputs, with OpenAI categorizing message strings into distinct roles for improved processing.
+
+# Slide 9:
+
+[Slide Title: Output Parsers]
+
+[Visual: Graphic representing transformation of AI model output into structured data]
+
+[Main Text:]
+
+- The OutputParser interface transforms AI model output into structured data, facilitating its use in applications.
+
+- Similar to Spring JDBC's RowMapper or ResultSetExtractor, OutputParser maps AI model output to Java classes or arrays of values.
+
+- It enables developers to efficiently convert AI model results into data types for further application processing.
+
+[Additional Text (Optional):]
+
+- OutputParser enhances the usability of AI model output, streamlining its integration into diverse applications and workflows.
+
+# Slide 10:
+
+[Slide Title: ETL Pipeline]
+
+[Visual: Illustration depicting data flow from raw sources to structured vector store]
+
+[Main Text:]
+
+- The Extract, Transform, and Load (ETL) framework serves as the foundation for data processing in the Retrieval Augmented Generation (RAG) use case.
+
+- ETL pipeline orchestrates the flow from raw data sources to a structured vector store, optimizing data format for AI model retrieval.
+
+- RAG augments generative models by retrieving pertinent information from data, enhancing the quality and relevance of generated output.
+
+[Additional Text (Optional):]
+
+- The ETL Pipeline plays a pivotal role in transforming raw data into actionable insights, driving the effectiveness of AI-driven applications.'
+
+# Slide 11:
+
+[Slide Title: Generic Model API]
+
+[Visual: Graphic representing the interconnectedness of various AI models]
+
+[Main Text:]
+
+- The Generic Model API serves as the cornerstone for all AI Model clients in Spring AI.
+
+- It offers a standardized pattern for contributing new AI Model support, streamlining development processes.
+
+- By providing a uniform foundation, the Generic Model API enhances interoperability and extensibility across Spring AI's ecosystem.
