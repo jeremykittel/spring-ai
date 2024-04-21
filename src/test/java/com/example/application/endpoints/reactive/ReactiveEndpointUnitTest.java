@@ -3,7 +3,7 @@ package com.example.application.endpoints.reactive;
 import com.example.application.consumer.RabbitMQConsumer;
 import dev.hilla.EndpointSubscription;
 
-import groovy.util.logging.Slf4j;
+import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
