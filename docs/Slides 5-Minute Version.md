@@ -1,4 +1,4 @@
-# Spring AI Overview
+# Spring AI
 
 - Spring AI offers a wide array of tools and APIs.
 - These tools ensure modularity, interchangeability, and ease of integration for diverse AI development needs.
@@ -8,14 +8,13 @@
 # Tools
 
 [.column]
-
 - Chat Completion API
 - Embeddings API
 - Image Generation API
 - Transcription API
 - Vector Databases
 
-- [.column]
+[.column]
 - Function Calling API
 - Prompts
 - Output Parsers
