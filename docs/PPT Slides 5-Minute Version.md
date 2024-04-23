@@ -13,6 +13,7 @@ Prompts: Guide AI models for specific outputs.
 Output Parsers: Obtain structured output from AI models for easier integration.
 ETL Pipeline: Backbone for data processing in Retrieval Augmented Generation (RAG) use cases.
 Generic Model API: Foundation for all AI Model clients, facilitating standardized development.
+
 Slide 2: Chat Completion API
 This API integrates AI-powered chat completion capabilities into applications using pre-trained language models like GPT. It offers a simple and portable interface for interacting with various AI models.
 
